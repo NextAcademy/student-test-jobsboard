@@ -1,0 +1,14 @@
+h1
+  | Our partner companies
+- @companies.each do |company|
+  .company
+  	= image_tag(company.company_logo, :width => 200) if company.company_logo.present?
+    h2
+      = company.company_name
+    h3
+      = company.company_profile
+    p
+      |Apply to work for this company by emailing your CV to
+      = company.hr_email
+
+p = paginate @companies

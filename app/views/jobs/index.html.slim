@@ -1,0 +1,18 @@
+h1
+  | Jobs Openings
+- @jobs.each do |job|
+  .job
+    h2
+      | Work as a 
+      = job.title
+    h3
+      | at
+      = job.company_name
+    h4
+	  | Job description
+      = job.job_description
+      | Employment terms
+      - job.employment_terms.each do |term|
+      	= term
+
+p = paginate @jobs

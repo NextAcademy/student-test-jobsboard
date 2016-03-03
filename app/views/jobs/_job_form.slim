@@ -1,0 +1,9 @@
+= simple_form_for(@job, html: {class: 'form-horizontal'}) do |form|
+  = form.input :title, label: "Job title"
+  = form.input :job_description, label: "Job description", as: :text, placeholder: "In 150 words or less, please explain the role and expectations of the applicant."
+  = form.input :location, label: "Job location", placeholder: "City & State"
+  = form.label "What are the employment terms?", wrapper_html: {class: 'label'}
+  = form.collection_check_boxes :employment_terms, [['Freelance', 'Freelance'], ['Temp', 'Temp Staff'], ['Permanent', 'Permanent']], :first, :last
+  = form.input :company_name, label: "Name of company"
+ 
+  = form.button :submit

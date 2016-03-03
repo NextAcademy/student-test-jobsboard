@@ -1,0 +1,9 @@
+= simple_form_for(@company, html: {class: 'form-horizontal'}) do |form|
+  = form.input :company_name, label: "Company Name"
+  = form.input :company_profile, label: "Tell us what you do in 200 words or less.", as: :text
+  = form.input :hr_email, label: "Human Resources email"
+  = form.label "What experience do you need from talents?", wrapper_html: {class: 'label'}
+  = form.collection_check_boxes :talent_requirements, [['TDD', 'Test Driven Development'], ['Refactor Day', 'Refactor Day'], ['Stand-Ups', 'Developer Stand-Ups']], :first, :last
+  = form.input :company_logo, label: "Company Logo", as: :file
+ 
+  = form.button :submit

@@ -1,0 +1,17 @@
+h1 Company Partnerships Approval Dashboard
+
+- @companies.each do |company|
+  .company
+  	= image_tag(company.company_logo, :width => 200) if company.company_logo.present?
+    h2
+      = company.company_name
+    h3
+      = company.company_profile
+      = company.hr_email
+      = simple_form_for (company, html: {class: 'form-inline'}) do |form|
+      	=form.input company.status, label: "Current Status", as: :select
+      	=form.button :submit
+
+
+
+p = paginate @companies

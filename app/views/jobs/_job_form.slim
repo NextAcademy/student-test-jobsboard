@@ -3,6 +3,7 @@
   = form.input :job_description, label: "Job description", :input_html => { :rows => 10 }, as: :text, placeholder: "In 150 words or less, please explain the role and expectations of the applicant."
   = form.input :location, label: "Job location", placeholder: "City & State"
   = form.label "What are the employment terms?", wrapper_html: {class: 'label'}
+  p
   = form.collection_check_boxes :employment_terms, [[{'Freelance' => true}, 'Freelance'], [{'Temp' => true}, 'Temp Staff'], [{'Permanent' => true}, 'Permanent']], :first, :last, include_hidden: false
   = form.input :company_name, label: "Name of company"
   = form.input :job_poster_email, label: "Your contact email"

@@ -9,6 +9,7 @@ $('.dropdown-button').dropdown({
       alignment: 'right' // Displays dropdown with edge aligned to the left of button
     }
   );
-
+$(".button-collapse").sideNav();
 		}); // End Document Ready
 })(jQuery); // End of jQuery name space
+

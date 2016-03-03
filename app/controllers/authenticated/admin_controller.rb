@@ -2,7 +2,7 @@ class Authenticated::AdminController < ApplicationController
 	before_action :require_admin
 	
 	def index
-		@companies_pending_approval = Company.where(status: 0)
+		@companies = Company.where(status: 0)
 	end
 
 	private

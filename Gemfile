@@ -7,6 +7,7 @@ gem 'rails', '4.2.5.2'
 gem 'pg', '~> 0.15'
 gem 'clearance'
 # Use SCSS for stylesheets
+gem 'materialize-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.3.4', github: 'NextAcademy/bootstrap-sass'

@@ -2,7 +2,7 @@ class Company < ActiveRecord::Base
 	mount_uploader :company_logo, PictureUploader
 	has_many :jobs
 	validates :company_profile, presence: true
-	validates :email, presence: true
+	validates :hr_email, presence: true
 	validates :company_name, presence: true, uniqueness: true
 	store_accessor :talent_requirements
 

@@ -1,14 +1,21 @@
-h1
+h2
   | Our partner companies
 - @companies.each do |company|
-  .company
-  	= image_tag(company.company_logo, :width => 200) if company.company_logo.present?
-    h2
+  .company.row.blue.lighten-4
+  	.col.m1.l2
+      = image_tag(company.company_logo, :width => 100, :height => :auto) if company.company_logo.present?
+    h5.col.m1.l2
       = company.company_name
-    h3
+    p.col.m2.l3
       = company.company_profile
-    p
-      |Apply to work for this company by emailing your CV to
+    p.col.m2.l3
+      |Apply to work for this company by emailing your CV to 
+
       = company.hr_email
+      / - if company.company_url.present?
+      |or visit their website
+      a.waves-effect.waves-light-btn.black href="/#{company.company_name}"
+        i.mdi-file-cloud.left.col
+          |Visit their website
 
 p = paginate @companies

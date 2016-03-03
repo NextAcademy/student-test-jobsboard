@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160302093226) do
     t.text     "company_profile"
     t.string   "company_name"
     t.string   "hr_email"
+    t.string   "company_url"
     t.integer  "status",              default: 0
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

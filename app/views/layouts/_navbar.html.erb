@@ -1,34 +1,42 @@
 <nav>
         <div class="nav-wrapper grey darken-3">
-            <a href="#!" class="brand-logo left">NEXT Academy Employment Portal</a>
+            <a href="#" class="brand-logo left">NEXT Academy Employment Portal</a>
             <ul class="right">
+              <% if signed_in? && (current_user.student? || current_user.admin?) %>    
                 <li>
                   <%= link_to t(".partner-companies"), root_path %>
                 </li>
                 <li>
                   <%= link_to t(".jobs-board"), jobs_path %>
                 </li>
-                <% if signed_in? && (current_user.employer? || current_user.admin?)  %>
-                  <li>
-                    <%= link_to t(".create-a-job"), new_job_path %>
-                  </li>
-                <% end %>
-                <!-- Dropdown Trigger -->
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+              <% end %>
+              <% if signed_in? && (current_user.employer? || current_user.admin?)  %>
+                <li>
+                  <%= link_to t(".create-a-job"), new_job_path %>
+                </li>
+                <li>
+                  <%= link_to t(".create-company-profile"), new_company_path %>
+                </li>
+              <% end %>
+              <!-- Dropdown Trigger -->
+              <li><a class="dropdown-button" href="#" data-activates="dropdown" data-beloworigin="true">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
             </ul>
         </div>
     </nav>
     <!-- Dropdown Structure -->
     <ul id="dropdown" class="dropdown-content collection">
         <% if signed_in? %>
-          <li class="collection-item">
-            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
-          </li>
           <% if current_user.admin? %>
             <li class="collection-item">
               <%= link_to t(".admin-panel"), authenticated_admin_path %>
             </li>
           <% end %>
+            <li class="collection-item">
+              <%= link_to t(".change-password"), edit_user_password_path(current_user.id) %>
+            </li>
+            <li class="collection-item">
+              <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+            </li>
         <% else -%>
           <li class="collection-item">
             <%= link_to t(".sign_in"), sign_in_path %>

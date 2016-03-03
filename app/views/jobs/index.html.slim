@@ -7,12 +7,13 @@ h3
       = job.title
     h3
       | at
-      = job.company_name
+      =< job.company_name
     h4
 	  | Job description
       = job.job_description
       | Employment terms
       - job.employment_terms.each do |term|
-      	= term
+        - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
+      	p = input
 
 p = paginate @jobs

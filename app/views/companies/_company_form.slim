@@ -4,7 +4,7 @@
   = form.input :hr_email, label: "Human Resources email"
   = form.input :company_url, label: "Company website"
   = form.label "What experience do you need from talents?", wrapper_html: {class: 'label'}
-  = form.collection_check_boxes :talent_requirements, [['TDD', 'Test Driven Development'], ['Refactor Day', 'Refactor Day'], ['Stand-Ups', 'Developer Stand-Ups']], :first, :last, wrapper_html: {class: 'new-row'}
+  = form.collection_check_boxes :talent_requirements, [['TDD', 'Test Driven Development'], ['Refactor Day', 'Refactor Day'], ['Stand-Ups', 'Developer Stand-Ups']], :first, :last, wrapper_html: {class: 'new-row'}, include_hidden: false
   = form.input :company_logo, label: "Company Logo", as: :file
  
   = form.button :submit

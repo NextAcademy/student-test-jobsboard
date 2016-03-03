@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160302093226) do
     t.integer  "status",              default: 0
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.hstore   "talent_requirements"
+    t.hstore   "talent_requirements",                          array: true
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160302093226) do
     t.string   "company_name"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.hstore   "employment_terms"
+    t.hstore   "employment_terms",              array: true
   end
 
   create_table "users", force: :cascade do |t|

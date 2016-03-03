@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
 	validates :company_profile, presence: true
 	validates :hr_email, presence: true
 	validates :company_name, presence: true, uniqueness: true
-	store_accessor :talent_requirements
+	store_accessor :talent_requirements	
 
 	enum status: {
 	    'pending_approval' => 0,

@@ -16,6 +16,8 @@ class CompanyPolicy
 
   def create?
     return true if user.admin? || user.employer?
+    false
+
   end
 
   def new?
@@ -35,7 +37,7 @@ class CompanyPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, company.class)
+    Pundit.policy_scope!(user, company)
   end
 
   class Scope
@@ -47,7 +49,7 @@ class CompanyPolicy
     end
 
     def resolve
-      scope
+      Scope
     end
   end
 end

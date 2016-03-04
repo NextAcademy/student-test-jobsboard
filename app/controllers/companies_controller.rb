@@ -3,7 +3,6 @@ class CompaniesController < ApplicationController
   def index
   	@companies_per_page = 10
     @companies = Company.where(status: 1).page(params[:page]).per(@companies_per_page)
-    authorize @company
      # only approved companies get shown in index
   end
 
@@ -26,7 +25,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    @authorize @company
+    authorize @company
     @company.update(company_params)
     if @company.save
       flash[:success] = "Company status updated!"

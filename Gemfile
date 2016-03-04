@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'carrierwave'
 gem 'bootstrap-sass', '~> 3.3.4', github: 'NextAcademy/bootstrap-sass'
 gem 'slim-rails'
+gem 'pundit'
 
 gem 'kaminari'
 gem 'simple_form'

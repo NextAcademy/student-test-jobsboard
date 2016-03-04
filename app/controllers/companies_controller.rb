@@ -2,17 +2,21 @@ class CompaniesController < ApplicationController
 
   def index
   	@companies_per_page = 10
-    @companies = Company.where(status: 1).page(params[:page]).per(@companies_per_page) # only approved companies get shown in index
+    @companies = Company.where(status: 1).page(params[:page]).per(@companies_per_page)
+    authorize @company
+     # only approved companies get shown in index
   end
 
   def new
   	@company = Company.new
+    authorize @company
   end
 
   def create
   	@company = Company.new(company_params)
+    authorize @company
   	if @company.save
-  		flash[:success] = "Awesome, your company submission has been created."
+  		flash[:success] = "Awesome, your company submission will be displayed upon approval."
   		redirect_to sign_up_path
   	else
   		flash[:error] = "Submission failed, please ensure that the company details are input correctly."
@@ -22,6 +26,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
+    @authorize @company
     @company.update(company_params)
     if @company.save
       flash[:success] = "Company status updated!"

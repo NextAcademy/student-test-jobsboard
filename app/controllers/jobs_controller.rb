@@ -5,10 +5,12 @@ class JobsController < ApplicationController
 
   def new
   	@job = Job.new
+    authorize @job
   end
 
   def create
   	@job = Job.new(job_params)
+    authorize @job
   	if @job.save
   		flash[:success] = "Admin notified, your job post will be visible once approved."
   		redirect_to root_path

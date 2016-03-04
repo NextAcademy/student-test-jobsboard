@@ -1,22 +1,41 @@
 - content_for(:title, 'Partner Companies')
 h3
   | Our partner companies
-- @companies.each do |company|
-  .company.row.blue.lighten-4
-  	.col.m1.l2
-      = image_tag(company.company_logo, :width => 100, :height => :auto) if company.company_logo.present?
-    h5.col.m1.l2
-      = company.company_name
-    p.col.m2.l3
-      = company.company_profile
-    p.col.m2.l3
-      |Apply to work for this company by emailing your CV to 
-
-      = company.hr_email
-      / - if company.company_url.present?
-      |or visit their website
-      a.waves-effect.waves-light-btn.black href="/#{}"
-        i.mdi-file-cloud.left.col
-          |Visit their website
+div.row
+    - @companies.each do |company|
+        div.col.s12.m6
+          div.card.large
+          	div.card-image.waves-effect.waves-block.waves-light
+              = image_tag(company.company_logo, :class => "menu_icon activator") if company.company_logo.present?
+            div.card-content
+              span.card-title.activator.grey-text.text-darken-4
+                = company.company_name
+                i.material-icons.right
+                  | more_vert
+              p 
+                | Required Experience : 
+                - company.talent_requirements.each do |requirement|
+                  - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
+                  blockquote
+                    = input
+            div.card-reveal
+              span.card-title.activator.grey-text.text-darken-4
+                i.material-icons.right
+                  | more_vert
+                = company.company_name
+              p
+                | Company Profile : 
+              p
+                = company.company_profile
+              p
+                | How to apply :
+              p
+                | Email your CV to 
+              p
+                = company.hr_email
+              - if company.company_url.present?
+                p 
+                  | or visit their website 
+                  = link_to company.company_url
 
 p = paginate @companies

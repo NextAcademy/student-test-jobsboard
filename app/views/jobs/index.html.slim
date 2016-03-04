@@ -1,20 +1,28 @@
 - content_for(:title, 'Job Postings')
 h3
   | Jobs Openings
-- @jobs.each do |job|
-  .job
-    h3
-      | Work as a 
-      = job.title
-    h3
-      | at
-      =< job.company_name
-    h4
-	  | Job description
-      = job.job_description
-      | Employment terms
-      - job.employment_terms.each do |term|
-        - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
-      	p = input
+div.row
+    - @jobs.each do |job|
+      div.col.s12.m6
+        div.card.grey.darken-1
+          div.card-content.white-text
+            span.card-title 
+              => job.title
+              | at
+              =< job.company_name
+            p
+              | Job Description :
+            blockquote
+              = job.job_description
+            p
+              | Contact Email :
+            blockquote
+              = job.job_poster_email
+            div.card-action
+              | Employment terms
+              - job.employment_terms.each do |term|
+                - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
+                blockquote
+                  = input
 
 p = paginate @jobs

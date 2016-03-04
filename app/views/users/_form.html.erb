@@ -7,3 +7,8 @@
   <%= form.label :password %>
   <%= form.password_field :password %>
 </div>
+
+<div class="role-field">
+  <%= form.label :role %>
+  <%= form.select(:role, ['employer', 'student'], {}, {:class => 'dropdown' }) %>
+</div>

@@ -2,7 +2,7 @@ class Authenticated::AdminController < ApplicationController
 	before_action :require_admin
 	
 	def index
-		@companies = Company.where(status: 0)
+		@companies = Company.where(status: 0).page(params[:page]).per(@companies_per_page)
 	end
 
 	private

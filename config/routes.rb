@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   root 'companies#index'
 
   namespace :authenticated do
-      get 'admin' => 'admin#index'
+      get 'company' => 'admin#company'
+      get 'jobs' => 'admin#jobs'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

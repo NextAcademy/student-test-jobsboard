@@ -1,0 +1,33 @@
+h3 
+  | Job Posting Approval Dashboard
+div.row
+- if @jobs.count == 0
+    p No more submissions need approval!
+- else
+  - @jobs.each do |job|
+    div.col.s12.m6
+      div.card.grey.darken-1
+        div.card-content.white-text
+          span.card-title
+            => job.title
+            | at
+            =< job.company_name
+          p
+            | Job Description :
+          blockquote
+            = job.job_description
+          p
+            | Contact Email :
+          blockquote
+            = job.job_poster_email
+          div.card-action
+            | Employment terms
+            - job.employment_terms.each do |term|
+                - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
+                blockquote
+                  = input
+            = simple_form_for(company, html: {class: 'form-inline', method: :put }) do |form|
+              = form.input :status, label: "Current Status", as: :select, collection: Job.statuses.keys.to_a, input_html: { class: "input-field col m6 dropdown"}
+              = form.button :submit
+
+p = paginate @jobs

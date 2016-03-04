@@ -8,6 +8,7 @@ class UsersController < Clearance::UsersController
 			redirect_to root_path
 		else
 			flash[:error] = "Failed to create an account, please contact admin."
+			redirect_to "/sign_up"
 		end
 	end
 

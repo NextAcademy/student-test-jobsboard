@@ -15,7 +15,8 @@ div.row
               p 
                 | Required Experience : 
                 - company.talent_requirements.each do |requirement|
-                  - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
+                - byebug  
+                  - input = requirement.keys.first.gsub(/[^0-9A-Za-z]/, '')
                   blockquote
                     = input
             div.card-reveal

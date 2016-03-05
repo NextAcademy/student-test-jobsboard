@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    byebug
   	@company = Company.new(company_params)
     authorize @company
   	if @company.save

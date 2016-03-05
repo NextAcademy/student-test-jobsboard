@@ -5,7 +5,7 @@
   = form.input :company_url, label: "Company website"
   = form.label "What experience do you need from talents?", wrapper_html: {class: 'label'}
   p
-    = form.collection_check_boxes :talent_requirements, [['TDD', 'Test Driven Development'], ['Refactor Day', 'Refactor Day'], ['Stand-Ups', 'Developer Stand-Ups']], :first, :last, wrapper_html: {class: 'new-row'}, include_hidden: false
+    = form.collection_check_boxes :talent_requirements, [{'Test Driven Development' => true}, {'Refactor Day', true}, {'Stand-Ups', true}], :first, :last, wrapper_html: {class: 'new-row'}, include_hidden: false
   p
     = form.input :company_logo, label: "Company Logo", as: :file
   p

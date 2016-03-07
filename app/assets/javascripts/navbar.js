@@ -1,8 +1,9 @@
 (function($) {
-	$(function() {
+	var ready;
+	ready = function() {
 		$(".button-collapse").sideNav();
 		$('.dropdown-button').dropdown();
-		
-				}); // End Document Ready
+	}
+	$(document).on('page:load', ready); // End Document Ready
 })(jQuery); // End of jQuery name space
 

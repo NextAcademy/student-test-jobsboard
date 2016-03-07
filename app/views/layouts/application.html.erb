@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= full_title(yield :title)%></title>
-  <%= javascript_include_tag 'application' %>
-  <%= stylesheet_link_tag 'application' %>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  <div id="header">
-    <%= render :partial => 'layouts/navbar' %>
-  </div>
-
-  <div class="container">
-    
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div class="flash <%= key %>"><%=h value %></div>
-      <% end %>
+  <head>
+    <title><%= full_title(yield :title)%></title>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="header">
+      <%= render :partial => 'layouts/navbar' %>
     </div>
 
-    <%= yield %>
+    <div class="container">
+      
+      <div id="flash">
+        <% flash.each do |key, value| -%>
+          <div class="flash <%= key %>"><%=h value %></div>
+        <% end %>
+      </div>
 
-  </div>
-</body>
+      <%= yield %>
+
+    </div>
+  </body>
 </html>

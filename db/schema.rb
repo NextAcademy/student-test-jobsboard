@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304091344) do
+ActiveRecord::Schema.define(version: 20160307092340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160304091344) do
     t.hstore   "talent_requirements",                          array: true
   end
 
+  add_index "companies", ["id"], name: "index_companies_on_id", unique: true, using: :btree
+
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "job_description"
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160304091344) do
     t.integer  "status",           default: 0
   end
 
+  add_index "jobs", ["id"], name: "index_jobs_on_id", unique: true, using: :btree
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
@@ -52,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160304091344) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["id"], name: "index_users_on_id", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

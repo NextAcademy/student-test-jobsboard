@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root 'companies#index'
 
   namespace :authenticated do
-      get 'company' => 'admin#company'
+      get 'companies' => 'admin#companies'
       get 'jobs' => 'admin#jobs'
   end
 

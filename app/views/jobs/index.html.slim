@@ -21,7 +21,7 @@ div.row
             div.card-action
               | Employment terms
               - job.employment_terms.each do |term|
-                - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
+                - input = term.keys.first.gsub(/[^a-zA-Z\d\s:]/, '')
                 blockquote
                   = input
 

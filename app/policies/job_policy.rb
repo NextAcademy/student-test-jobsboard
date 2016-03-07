@@ -23,7 +23,7 @@ class JobPolicy
   end
 
   def update?
-    false
+    return true if user.admin?
   end
 
   def edit?

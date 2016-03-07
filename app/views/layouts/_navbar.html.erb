@@ -47,7 +47,10 @@
         <% if signed_in? %>
           <% if current_user.admin? %>
             <li>
-              <%= link_to t(".admin-panel"), authenticated_admin_path %>
+              <%= link_to t(".job-approval"), authenticated_jobs_path %>
+            </li>
+            <li>
+              <%= link_to t(".company-approval"), authenticated_companies_path %>
             </li>
           <% end %>
             <li>
@@ -72,7 +75,10 @@
   <% if signed_in? %>
     <% if current_user.admin? %>
       <li class="collection-item">
-        <%= link_to t(".admin-panel"), authenticated_admin_path %>
+        <%= link_to t(".job-approval"), authenticated_jobs_path %>
+      </li>
+      <li class="collection-item">
+        <%= link_to t(".company-approval"), authenticated_companies_path %>
       </li>
     <% end %>
       <li class="collection-item">

@@ -4,36 +4,35 @@ h3
 div.row
     - @companies.each do |company|
         div.col.s12.m6
-          div.card.large
+          div.card.large.black
           	div.card-image.waves-effect.waves-block.waves-light
               = image_tag(company.company_logo, :class => "menu_icon activator") if company.company_logo.present?
             div.card-content
-              span.card-title.activator.grey-text.text-darken-4
+              span.card-title.activator.white-text.text-darken-4
                 = company.company_name
                 i.material-icons.right
                   | more_vert
-              p 
-                | Required Experience : 
-                - company.talent_requirements.each do |requirement|
-                - byebug  
-                  - input = requirement.keys.first.gsub(/[^0-9A-Za-z]/, '')
-                  blockquote
-                    = input
             div.card-reveal
               span.card-title.activator.grey-text.text-darken-4
                 i.material-icons.right
                   | more_vert
                 = company.company_name
               p
-                | Company Profile : 
+                | Profile : 
               p
                 = company.company_profile
-              p
+              p 
+                | Required Experience : 
+                - company.talent_requirements.each do |requirement|
+                  - input = requirement.keys.first.gsub(/[^a-zA-Z\d\s:]/, '')
+                  blockquote
+                    = input
+              h5
                 | How to apply :
               p
                 | Email your CV to 
-              p
-                = company.hr_email
+              
+                => company.hr_email
               - if company.company_url.present?
                 p 
                   | or visit their website 

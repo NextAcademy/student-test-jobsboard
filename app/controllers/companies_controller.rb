@@ -12,7 +12,6 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    byebug
   	@company = Company.new(company_params)
     authorize @company
   	if @company.save
@@ -33,7 +32,7 @@ class CompaniesController < ApplicationController
     else
       flash[:error] = "Company status failed to update."
     end
-    redirect_to authenticated_admin_path
+    redirect_to authenticated_companies_path
   end
 
   private

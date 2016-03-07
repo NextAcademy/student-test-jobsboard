@@ -26,7 +26,7 @@ div.row
                 - input = term.keys.first.gsub(/[^0-9A-Za-z]/, '')
                 blockquote
                   = input
-            = simple_form_for(company, html: {class: 'form-inline', method: :put }) do |form|
+            = simple_form_for(job, html: {class: 'form-inline', method: :put }) do |form|
               = form.input :status, label: "Current Status", as: :select, collection: Job.statuses.keys.to_a, input_html: { class: "input-field col m6 dropdown"}
               = form.button :submit
 

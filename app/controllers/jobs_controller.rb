@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-  	@jobs = Job.page(params[:page]).per(25)
+  	@jobs = Job.where(status: 1).page(params[:page]).per(25)
   end
 
   def new
@@ -20,9 +20,21 @@ class JobsController < ApplicationController
   	end
   end
 
+  def update
+    @job = Job.find(params[:id])
+    authorize @job
+    @job.update(job_params)
+    if @job.save
+      flash[:success] = "Job status updated!"
+    else
+      flash[:error] = "Job status failed to update."
+    end
+    redirect_to authenticated_jobs_path
+  end
+
   private
 
 	  def job_params
-	  	params.require(:job).permit(:title, :job_description, :location, :job_poster_email, :company_name, {:employment_terms => []})
+	  	params.require(:job).permit(:title, :job_description, :location, :job_poster_email, :company_name, {:employment_terms => []}, :status)
 	  end
 end

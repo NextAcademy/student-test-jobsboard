@@ -40,9 +40,6 @@
           <li>
             <%= link_to t(".create-company-profile"), new_company_path %>
           </li>
-          <li>
-            <%= link_to t(".create-company-profile"), new_company_path %>
-          </li>
         <% end %>
         <% if signed_in? %>
           <% if current_user.admin? %>

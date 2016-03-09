@@ -6,30 +6,23 @@ Here are the submission details
 
 Company Profile :
 <%= @company.company_profile %>
-<% byebug %>
 
 Technology stack :
 <%= @company.technology_stack %>
-<% byebug %>
 
 Company Culture : 
 <%= @company.culture %>
-<% byebug %>
 
 Engineering Team Info : 
 <%= @company.team_info %>
-<% byebug %>
 
 HR Email :
 <%= @company.hr_email %>
-<% byebug %>
 
 Company URL : 
 <%= @company.company_url %>
-<% byebug %>
 
 Talent Requirements :
 <% @company.talent_requirements.each do |requirement| %>
-  <% byebug %>
   <%= requirement.keys %>
 <% end %> 

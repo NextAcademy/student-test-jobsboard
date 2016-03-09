@@ -15,6 +15,7 @@ class CompaniesController < ApplicationController
   	@company = Company.new(company_params)
     authorize @company
   	if @company.save
+      CompanySubmissionMailer.submission_notification(@company).deliver_now
   		flash[:success] = "Awesome, your company submission will be displayed upon approval."
   		redirect_to sign_up_path
   	else

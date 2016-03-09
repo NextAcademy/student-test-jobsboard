@@ -1,6 +1,9 @@
 = simple_form_for(@company) do |form|
   = form.input :company_name, label: "Company Name"
   = form.input :company_profile, label: "Tell us what you do in 200 words or less.", as: :text
+  = form.input :technology_stack, label: "Tell us your technology stack."
+  = form.input :culture, label: "Tell us more about your company culture.", as: :text
+  = form.input :team_info, label: "Tell us about your engineering team.", as: :text
   = form.input :hr_email, label: "Human Resources email"
   = form.input :company_url, label: "Company website"
   = form.label "What experience do you need from talents?", wrapper_html: {class: 'label'}

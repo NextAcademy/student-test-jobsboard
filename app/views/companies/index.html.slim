@@ -12,6 +12,9 @@ div.row
                 = company.company_name
                 i.material-icons.right
                   | more_vert
+              p
+                | Technology stack
+                => company.technology_stack
             div.card-reveal
               span.card-title.activator.grey-text.text-darken-4
                 i.material-icons.right
@@ -21,6 +24,14 @@ div.row
                 | Profile : 
               p
                 = company.company_profile
+              p
+                | Culture : 
+              p
+                = company.culture
+              p
+                | About their engineering team : 
+              p
+                = company.team_info
               p 
                 | Required Experience : 
                 - company.talent_requirements.each do |requirement|

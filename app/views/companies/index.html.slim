@@ -12,9 +12,11 @@ div.row
                 = company.company_name
                 i.material-icons.right
                   | more_vert
-              p
-                | Technology stack
-                => company.technology_stack
+              div.card-action
+                p.white-text
+                  | Technology stack :
+                p.white-text
+                  =< company.technology_stack
             div.card-reveal
               span.card-title.activator.grey-text.text-darken-4
                 i.material-icons.right

@@ -67,18 +67,18 @@ Rails.application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'www.nextacademy.com' }
+  config.action_mailer.default_url_options = { host: 'jobs.nextacademy.com' }
 
   config.action_mailer.smtp_settings = {
       :user_name => ENV["SENDGRID_USER"],
       :password  => ENV["SENDGRID_PASSWORD"],
-      :domain => 'www.nextacademy.com',
+      :domain => 'jobs.nextacademy.com',
       :address   => "smtp.sendgrid.net",
       :port      => 587,
       :enable_starttls_auto => true,
       :authentication => :plain,
   }
-  
+
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
@@ -89,4 +89,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.force_ssl = true
 end

@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-wrapper grey darken-3">
       <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
-      <a href="#" class="brand-logo left">NEXT Academy Employment Portal</a>
+      <img src="https://www.nextacademy.com/assets/next-academy-white-4ed0878af28fe9425294f5834b9fa5364e10cee1b968c5e97277235458470c85.png" width="141" height="50" style="margin-top: 7px;">
       <!-- desktop -->
       <ul class="right hide-on-med-and-down">
         <% if signed_in? %>    
@@ -11,6 +11,11 @@
           <li>
             <%= link_to t(".jobs-board"), jobs_path %>
           </li>
+          <% if current_user.admin? %>
+            <li>
+              <%= link_to t(".create_user"), create_user_path %>
+            </li>
+          <% end %>
         <% end %>
         <% if signed_in? && (current_user.employer? || current_user.admin?)  %>
           <li>
@@ -49,6 +54,9 @@
             <li>
               <%= link_to t(".company-approval"), authenticated_companies_path %>
             </li>
+            <li>
+              <%= link_to t(".create_user"), create_user_path %>
+            </li>
           <% end %>
             <li>
               <%= link_to t(".change-password"), edit_user_password_path(current_user.id) %>
@@ -56,13 +64,6 @@
             <li>
               <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
             </li>
-        <% else -%>
-          <li>
-            <%= link_to t(".sign_in"), sign_in_path %>
-          </li>
-          <li>
-            <%= link_to t(".sign_up"), sign_up_path %>
-          </li>
         <% end -%>
       </ul>
   </div>
@@ -84,13 +85,6 @@
       <li class="collection-item">
         <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
       </li>
-  <% else -%>
-    <li class="collection-item">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </li>
-    <li class="collection-item">
-      <%= link_to t(".sign_up"), sign_up_path %>
-    </li>
   <% end -%>
 </ul>
 

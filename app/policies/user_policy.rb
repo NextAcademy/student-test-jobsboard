@@ -1,8 +1,8 @@
-class ApplicationPolicy
+class UserPolicy
   attr_reader :user, :admin
 
   def initialize(user, admin)
-    @user = user
+    @user = user || User.new
     @admin = admin
   end
 
@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    user.admin?
   end
 
   def new?

@@ -2,13 +2,13 @@ class UsersController < Clearance::UsersController
 
 	def create
 		@user = User.new(user_params)
+		authorize @user
 		if @user.save
-			sign_in @user
-			flash[:success] = "Awesome, you may create a company profile and jobs now."
+			flash[:success] = "Awesome, #{@user.role} user account has been created."
 			redirect_to root_path
 		else
 			flash[:error] = "Failed to create an account, please try again."
-			redirect_to "/sign_up"
+			redirect_to create_user_path
 		end
 	end
 

@@ -219,6 +219,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
+    puma (2.16.0)
     pundit (1.0.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -317,6 +318,7 @@ DEPENDENCIES
   materialize-sass
   mini_magick
   pg (~> 0.15)
+  puma
   pundit
   rails (= 4.2.5.2)
   sass-rails (~> 5.0)

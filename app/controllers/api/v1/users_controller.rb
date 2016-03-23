@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
 
 
 	def create
-		if request.env[:HTTP_TOKEN] == "hello"
+		if request.env[:HTTP_TOKEN] == ENV['access_token']
 			create_user
 		else
 			render json: {success: 'false', message: 'Token authentication failed!'}, status: 401

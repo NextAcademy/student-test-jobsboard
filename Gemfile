@@ -9,7 +9,7 @@ gem 'clearance'
 # Use SCSS for stylesheets
 gem 'materialize-sass'
 gem 'sass-rails', '~> 5.0'
-gem 'carrierwave'
+gem 'carrierwave', '0.10.0'
 gem 'bootstrap-sass', '~> 3.3.4', github: 'NextAcademy/bootstrap-sass'
 gem 'slim-rails'
 gem 'pundit'

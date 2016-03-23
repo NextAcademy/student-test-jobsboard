@@ -311,7 +311,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.4)!
   byebug
-  carrierwave
+  carrierwave (= 0.10.0)
   clearance
   coffee-rails (~> 4.1.0)
   faker
